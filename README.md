@@ -39,3 +39,7 @@ You can see how all this works and it's rules in the docs/ folder.
 
 # why is it called howl?
 Well because every time I thought of the name Wren and birds popped into my brain I could never escape the imagery of the Howl's Moving Castle movie. In particular a scene where the titular wizard Howl turns into a huge flying bird and flies off to fight in a war.
+
+Little fanart found on pinterest of Howl's bird form: [[https://uk.pinterest.com/pin/37576978135501059/]]
+
+![Howl in partial bird form](/6c7397ae0b9bfd2a431d7106a975a394.jpg)
