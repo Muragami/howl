@@ -8,32 +8,8 @@ howl is not an interpreter or bytecode compiler, but instead offers two transpil
 howl uses a clean, simple syntax to define classes with support for multiple inheritance. It supports a lot of the normal Luajit (Lua 5.1 with extensions) syntax, but extends that with new operators, and removes tables entirely in exchange for the Class object, adding Lists and Maps from Wren.
 
 Here is a small example of howl syntax:
-```Wren
-class Vector2
-    _x = 0
-    _y = 0
 
-    construct new(nx, ny)
-        _x = nx
-        _y = ny
-    ;
-
-    +(other)
-        _x += other.x
-        _y += other.y
-    ;
-
-    length(other) Math.sqrt((_x - other.x) ^ 2 + (_y - other.y) ^ 2)
-;
-
-class Point is Vector2
-    construct new(nx, ny) super.new(nx, ny)
-;
-
-class Distance is Vector2
-    construct new(nx, ny) super.new(nx, ny)
-;
-```
+![Howl Syntax](img/howl%20syntax.png)
 
 You can see how all this works and it's rules in the docs/ folder.
 
@@ -42,4 +18,4 @@ Well because every time I thought of the name Wren and birds popped into my brai
 
 Little fanart found on pinterest of Howl's bird form: [[https://uk.pinterest.com/pin/37576978135501059/]]
 
-![Howl in partial bird form](/6c7397ae0b9bfd2a431d7106a975a394.jpg)
+![Howl in partial bird form](img/6c7397ae0b9bfd2a431d7106a975a394.jpg)
