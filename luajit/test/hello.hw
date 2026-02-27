@@ -1,0 +1,32 @@
+
+class Vector2 is Object aka Point :
+    _x : 0 ;
+    _y : 0 ;
+
+    construct new(nx, ny) :
+        _x = nx
+        _y = ny
+    ;
+
+    +(other) :
+        _x = _x + other.x
+        _y = _y + other.y
+    ;
+
+    [i] :
+        if (i == 0) : _x ;
+        else if (i == 1) : _y ;
+        else : Fiber.abort("Vector2 indexed out of range") ;
+    ;
+
+    [i]=(v) :
+        if (i == 0) : _x = v ;
+        else if (i == 1) : _y = v ;
+        else : Fiber.abort("Vector2 indexed out of range") ;
+    ;
+
+    =@ : Fiber.abort("attempt to pull from a Vector2") ;
+    @= : Fiber.abort("attempt to pull from a Vector2") ;
+
+    length(other) : Math.sqrt(Math.pow(other.x - _x, 2) + Math.pow(other.y - _y, 2)) ;
+;
