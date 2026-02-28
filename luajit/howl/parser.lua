@@ -1,4 +1,11 @@
 
+-- ********************************************************************************
+-- locals we need
+local util = require 'howl/util.lua'
+local tinsert = table.insert
+local clone = util.clone
+--local cloneInto = util.cloneInto
+
 -- the root space the parser operates within
 local root
 -- the modules in this parser space
@@ -15,9 +22,29 @@ local stringTable = {
     'rep', 'reverse', 'sub', 'upper'
 }
 
+-- ********************************************************************************
+-- base local functions
+
+local function strToLineTable(str)
+    local t = {}
+    -- gmatch our lines
+    for line in string.gmatch(str, "([^\n]+)") do
+        -- trim starting and end whitespace
+        local s = string.gsub(line, "^%s*(.-)%s*$", "%1")
+        table.insert(t, s)
+    end
+    return t
+end
+
 return {
-    install = function(self, aroot)
+    install = function(self, aroot) -- install the parser into the root instance
         root = aroot
         mod = aroot.module
+    end,
+    new = function(self) -- return a new parser with it's own namespace for use
+        return {
+            root = root,
+            mod = clone(mod)
+        }
     end
 }

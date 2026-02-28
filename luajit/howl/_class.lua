@@ -1,5 +1,5 @@
 -- class table implementation lua side
-local util = require 'acender/util.lua'
+local util = require 'howl/util.lua'
 local tinsert = table.insert
 -- local clone = util.clone
 local cloneInto = util.cloneInto

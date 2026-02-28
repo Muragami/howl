@@ -1,5 +1,5 @@
 -- object table implementation lua side
-local util = require 'acender/util.lua'
+local util = require 'howl/util.lua'
 local tinsert = table.insert
 local cloneInto = util.cloneInto
 local clone = util.clone
