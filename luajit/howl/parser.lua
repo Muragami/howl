@@ -36,6 +36,44 @@ local function strToLineTable(str)
     return t
 end
 
+-- ********************************************************************************
+-- let's get to parsing! *rolls up sleeves*
+
+--[[
+    here we parse the howl source into luajit source.
+    @param infoTable table If you pass a table to here, it'll get all kinds of data
+        about the code, including a md5 hash of the trimmed source.
+    @param getTable table If you pass a table here, it'll get the final generated
+        source code as lines in that table.
+]]
+local function strParse(self, str, infoTable, genTable)
+    local lines = strToLineTable(str)
+    if infoTable and type(infoTable) == 'table' then
+        -- we got an info table passed to set it up
+        local md5 = self.root.md5.new()
+        for _, ln in ipairs(lines) do
+            md5:update(ln)
+        end
+        infoTable.src = {
+            lineCount = #lines,
+            textHash = md5:finish()
+        }
+    end
+    -- we are a stateful parse, so keep track of the state using locals
+    local mode = 'pre-class'
+    local className = false
+    local methodName = false
+    local functionName = false
+    local currentLine = 1
+    for i, ln in ipairs(lines) do
+        currentLine = i
+        
+    end
+end
+
+-- ********************************************************************************
+-- put it all together and return it
+
 return {
     install = function(self, aroot) -- install the parser into the root instance
         root = aroot
@@ -44,7 +82,8 @@ return {
     new = function(self) -- return a new parser with it's own namespace for use
         return {
             root = root,
-            mod = clone(mod)
+            mod = clone(mod),
+            parse = strParse
         }
     end
 }

@@ -29,26 +29,27 @@ SOFTWARE.
 }
 
 -- the parser itself
-howl.parser = require('howl/parser.lua')
+howl.parser = require('howl/parser')
 -- link into the parser itself
 howl.parser:install(howl)
 -- install core module classes
 howl.module = {
-    Class = require('howl/_class.lua'),
-    Fiber = require('howl/_fiber.lua'),
-    Fn = require('howl/_fn.lua'),
-    List = require('howl/_list.lua'),
-    Map = require('howl/_map.lua'),
-    Object = require('howl/_object.lua'),
-    Range = require('howl/_range.lua'),
-    Sequence = require('howl/_sequence.lua'),
+    Class = require('howl/_class'),
+    Fiber = require('howl/_fiber'),
+    Fn = require('howl/_fn'),
+    List = require('howl/_list'),
+    Map = require('howl/_map'),
+    Object = require('howl/_object'),
+    Range = require('howl/_range'),
+    Sequence = require('howl/_sequence'),
 }
 -- install needed library routines
 howl.lib = {
-    string = require('howl/lib_string.lua'),
-    number = require('howl/lib_number.lua'),
+    string = require('howl/lib_string'),
+    number = require('howl/lib_number'),
     buffer = require('string.buffer'),
-    bit = require('bit')
+    bit = require('bit'),
+    md5 = require('howl/md5')
 }
 
 if love then
