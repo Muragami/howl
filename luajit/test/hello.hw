@@ -1,5 +1,5 @@
 
-class Vector2 is Object aka Point :
+class Vector2 is Object aka Point, Distance :
     _x : 0 ;
     _y : 0 ;
 
@@ -26,7 +26,7 @@ class Vector2 is Object aka Point :
     ;
 
     =@ : Fiber.abort("attempt to pull from a Vector2") ;
-    @= : Fiber.abort("attempt to pull from a Vector2") ;
+    @= : Fiber.abort("attempt to push to a Vector2") ;
 
-    length(other) : Math.sqrt(Math.pow(other.x - _x, 2) + Math.pow(other.y - _y, 2)) ;
+    length(other) : ((other.x - _x, 2) ^ 2 + (other.y - _y, 2) ^ 2) ^ 0.5 ;
 ;
